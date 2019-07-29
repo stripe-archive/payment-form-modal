@@ -1,0 +1,87 @@
+.demo {
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  text-align: center;
+  margin-top: 55px;
+}
+
+.success-message {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 400px;
+}
+
+.success-text {
+  color: rgb(0, 0, 0);
+  font-size: 28px;
+  font-weight: 500;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.replay {
+  color: rgb(0, 102, 240);
+  font-size: 17px;
+  font-weight: 500;
+}
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+  display: inline-block;
+  position: relative;
+  height: 420px;
+  width: 420px;
+}
+
+/* Make the image responsive */
+.container img {
+  height: 420px;
+  width: 420px;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+  background: rgb(0, 102, 240);
+  box-shadow: 0px 15px 35px 0px rgba(50, 50, 93, 0.1),
+    0px 5px 15px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 22px 22px 22px 22px;
+  margin-top: 5px;
+  color: rgb(255, 255, 255);
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.container .btn:hover {
+  background-color: black;
+}
+
+.price-and-button-container {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  left: 0;
+  top: 310;
+  right: 0;
+  bottom: 0;
+}
+
+.product-name {
+  display: flex;
+  text-align: left;
+  color: rgb(0, 0, 0);
+  font-size: 17px;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.product-price {
+  display: flex;
+  text-align: left;
+  color: rgb(0, 0, 0);
+  font-size: 28px;
+  font-weight: 500;
+}

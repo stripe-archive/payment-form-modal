@@ -1,0 +1,22 @@
+{
+  "name": "elements-modal-demo",
+  "version": "1.0.0",
+  "description": "Stripe Elements wrapper",
+  "keywords": [
+    "stripe",
+    "payment processing",
+    "credit cards",
+    "elements"
+  ],
+  "main": "client/elementsModal.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Stripe <support@stripe.com> (https://stripe.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.0",
+    "stripe": "^7.0.0"
+  }
+}
