@@ -456,9 +456,26 @@ function createPaymentIntent(content) {
     });
 }
 
+function getPublicKey() {
+  return fetch(HOST_URL + "/public-key", {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(stripePublicKey) {
+      return stripePublicKey.publicKey;
+    });
+}
+
 function init(content) {
-  createPaymentIntent(content).then(function(result) {
-    createElements(content, result.paymentIntent);
+  Promise.all([createPaymentIntent(content), getPublicKey()]).then(function(
+    result
+  ) {
+    createElements(content, result[0], result[1]);
   });
 
   // UI enhancement to dismiss the Elements modal when the user clicks
@@ -491,8 +508,8 @@ function init(content) {
   });
 }
 
-function createElements(content, paymentIntent) {
-  var stripe = Stripe(STRIPE_PUBLIC_KEY);
+function createElements(content, paymentIntent, publicKey) {
+  var stripe = Stripe(publicKey);
 
   // Create an instance of Elements.
   var elements = stripe.elements();
@@ -547,7 +564,9 @@ function createElements(content, paymentIntent) {
 // Implement logic to handle the users authorization for payment.
 // Here you will want to redirect to a successful payments page, or update the page.
 function stripePaymentHandler() {
-  window.location.replace("/payment_intent_succeeded");
+  toggleElementsModalVisibility();
+  document.getElementById("endstate").style.display = "block";
+  document.getElementById("startstate").style.display = "none";
 }
 
 window.elementsModal = (() => {

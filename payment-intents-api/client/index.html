@@ -7,7 +7,7 @@
     <script src="elementsModal.js"></script>
   </head>
   <body>
-    <div class="demo">
+    <div id="startstate" class="demo">
       <h2>KAVHOLM</h2>
       <div class="container">
         <img
@@ -27,6 +27,22 @@
           >
             Buy now
           </button>
+        </div>
+      </div>
+    </div>
+    <div id="endstate" class="demo endstate">
+      <h2>KAVHOLM</h2>
+      <div class="success-message">
+        <div class="success-text">
+          Your test payment was successful. <br />Complete the order by using
+          the
+          <a
+            href="https://stripe.com/docs/payments/payment-intents/quickstart#fulfillment"
+            >payment_intent.succeeded webhook</a
+          >.
+        </div>
+        <div>
+          <a class="replay" href="/">Replay demo</a>
         </div>
       </div>
     </div>

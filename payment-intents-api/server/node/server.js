@@ -2,10 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const { resolve } = require("path");
-const envPath = resolve("../../../.env");
+const envPath = resolve("../../.env");
 const env = require("dotenv").config({ path: envPath });
 const stripe = require("stripe")(env.parsed.STRIPE_SECRET_KEY);
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 4242;
 
 // Setup useful middleware.
 app.use(
@@ -30,6 +30,10 @@ app.get("/", (req, res) => {
   res.sendFile(path);
 });
 
+app.get("/public-key", (req, res) => {
+  res.send({ publicKey: process.env.STRIPE_PUBLIC_KEY });
+});
+
 app.post("/payment_intents", async (req, res) => {
   let { currency, amount } = req.body;
   try {
@@ -37,16 +41,10 @@ app.post("/payment_intents", async (req, res) => {
       amount,
       currency
     });
-    return res.status(200).json({ paymentIntent });
+    return res.status(200).json(paymentIntent);
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
-});
-
-// Render the charge completed page
-app.get("/payment_intent_succeeded", (req, res) => {
-  const path = resolve("./../../client/payment_succeeded.html");
-  res.sendFile(path);
 });
 
 // A webhook to receive events sent from Stripe
