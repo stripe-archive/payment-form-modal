@@ -1,7 +1,6 @@
 # Stripe Elements modal demo
 
 This project shows how to implement [Stripe Elements](https://stripe.com/payments/elements) within a modal dialog using the following APIs.
-The folders for the below include a client and server examples.
 
 - [Payment Intents API](https://stripe.com/docs/payments/payment-intents/quickstart#automatic-confirmation-flow) reference implementation with Payment Intents API in [this folder](payment-intents-api).
 
