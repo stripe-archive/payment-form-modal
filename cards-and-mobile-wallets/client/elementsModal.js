@@ -6,7 +6,7 @@ var _elementsModal_STRIPE_PUBLIC_KEY = "pk_test_12345";
 var _elementsModal_stripe = Stripe(_elementsModal_STRIPE_PUBLIC_KEY);
 
 // Change the host url to match the Ngrok URL
-var _elementsModal_HOST_URL = "https://checkout-hooks.ngrok.io";
+var _elementsModal_HOST_URL = "https://YOUR-NGROK_URL.ngrok.io";
 
 function browserLocale() {
   var lang;

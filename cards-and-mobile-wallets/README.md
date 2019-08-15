@@ -78,14 +78,14 @@ window.elementsModal.create({
 
 Here are the options the demo allows you to configure:
 
-| Name                      | Description                                                                                                                                                                       | Type    |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| amount (required)         | All API requests expect amounts to be provided in currency's smallest unit ([zero-decimal currencies](https://stripe.com/docs/currencies#zero-decimal) are handled in this demo.) | integer |
-| currency (required)       | A [supported currency](https://stripe.com/docs/currencies#presentment-currencies)                                                                                                 | string  |
-| businessName (required)   | Business name                                                                                                                                                                     | string  |
-| productName (optional)    | Name of the product                                                                                                                                                               | string  |
-| customer email (optional) | Customer email to display                                                                                                                                                         |
-| customer email (required) | Customer name to create [Payment intents](https://stripe.com/docs/api/payment_intents/create)                                                                                     | string  |
+| Name                      | Description                                                                                   | Type   |
+| ------------------------- | --------------------------------------------------------------------------------------------- | ------ |
+| items (required)          | An array with a product^ object                                                               | array  |
+| product^ (object)         | A product SKU (string) and quanity (int) of that SKU                                          | object |
+| businessName (required)   | Business name                                                                                 | string |
+| productName (optional)    | Name of the product                                                                           | string |
+| customer email (optional) | Customer email to display                                                                     |
+| customer email (required) | Customer name to create [Payment intents](https://stripe.com/docs/api/payment_intents/create) | string |
 
 ### 3. Show the Elements modal
 
@@ -124,7 +124,7 @@ a static HTML page. Change this function to take action once a payment is comple
 
   <script>
     window.elementsModal.create({
-      amount: 1999,
+      items: [{ sku: "sku_1234", quantity: 1 }],
       currency: "USD",
       businessName: "KAVHOLM",
       productName: "Chair",
