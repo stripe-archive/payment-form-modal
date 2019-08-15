@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="demo.css" />
+    <link rel="stylesheet" href="elementsModal.css" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="elementsModal.js"></script>
+  </head>
+  <body>
+    <div class="demo payment-view">
+      <h2>KAVHOLM</h2>
+      <div class="container">
+        <img
+          alt="Kavholm dining chair"
+          class="product-image"
+          src="product.png"
+        />
+        <div class="price-and-button-container">
+          <div>
+            <div class="product-name">Chair set</div>
+            <div class="product-price">$19.99</div>
+          </div>
+          <button
+            type="button"
+            class="btn"
+            onClick="window.elementsModal.toggleElementsModalVisibility();"
+          >
+            Buy now
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="demo completed-view hidden">
+      <h2>KAVHOLM</h2>
+      <div class="success-message">
+        <div class="success-text">
+          Your test payment was successful. <br />Complete the order by using
+          the
+          <a
+            href="https://stripe.com/docs/payments/payment-intents/quickstart#fulfillment"
+            >payment_intent.succeeded webhook</a
+          >.
+        </div>
+        <div>
+          <a class="replay" href="https://checkout-hooks.ngrok.io/"
+            >Replay demo</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    window.elementsModal.create({
+      // the modal demo will handle non-zero currencies automatically
+      // items sent into the server can calculate their amounts and send back to the client
+      items: [{ sku: "sku_1234", quantity: 1 }],
+      // Supported currencies here https://stripe.com/docs/currencies#presentment-currencies
+      currency: "usd",
+      businessName: "KAVHOLM",
+      productName: "Chair",
+      customerEmail: "me@kavholm.com",
+      customerName: "Customer Kavholm"
+    });
+    // Remove the comment for this to automatically open the modal demo
+    // when the page is loaded
+    window.elementsModal.toggleElementsModalVisibility();
+  </script>
+</html>
