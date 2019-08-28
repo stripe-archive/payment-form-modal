@@ -46,6 +46,10 @@ const calculateOrderAmount = items => {
   return 1999;
 };
 
+app.get("/public-key", (req, res) => {
+  res.send({ publicKey: process.env.STRIPE_PUBLIC_KEY });
+});
+
 app.post("/payment_intents", async (req, res) => {
   let { currency, items } = req.body;
   try {
