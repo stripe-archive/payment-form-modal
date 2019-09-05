@@ -13,3 +13,7 @@ This project shows how to implement [Stripe Elements](https://stripe.com/payment
 #### Payment declined
 
 ![Elements modal payment declined](cards-and-mobile-wallets/payment-request-3d-secure-fail.gif)
+
+## Author
+
+[@ctrudeau-stripe](https://twitter.com/trudeaucj)
