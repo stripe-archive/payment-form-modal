@@ -4,7 +4,7 @@ const app = express();
 const { resolve } = require("path");
 const envPath = resolve("../../../.env");
 const env = require("dotenv").config({ path: envPath });
-const stripe = require("stripe")(env.parsed.STRIPE_SECRET_KEY);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const port = process.env.PORT || 4242;
 
 // Setup useful middleware.
@@ -59,7 +59,7 @@ app.post("/payment_intents", async (req, res) => {
 // This webhook endpoint is listening for a payment_intent.succeeded event
 app.post("/webhook", async (req, res) => {
   // Check if webhook signing is configured.
-  if (env.parsed.STRIPE_WEBHOOK_SECRET) {
+  if (process.env.STRIPE_WEBHOOK_SECRET) {
     // Retrieve the event by verifying the signature using the raw body and secret.
     let event;
     let signature = req.headers["stripe-signature"];
@@ -67,7 +67,7 @@ app.post("/webhook", async (req, res) => {
       event = stripe.webhooks.constructEvent(
         req.rawBody,
         signature,
-        env.parsed.STRIPE_WEBHOOK_SECRET
+        process.env.STRIPE_WEBHOOK_SECRET
       );
     } catch (err) {
       console.log(`⚠️  Webhook signature verification failed.`);
