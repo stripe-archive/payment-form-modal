@@ -50,7 +50,7 @@ This demo shows how to implement [Stripe Elements](https://stripe.com/payments/e
 You can customize the payment form further to meet your needs. For example, you can change the footer text on
 [line 418](client/elementsModal.js#L419-L424).
 
-### 1. Download the project [ZIP file](https://git.corp.stripe.com/ctrudeau/elements-modal-demo/archive/master.zip)
+### 1. Download the project [ZIP file](https://github.com/stripe-samples/payment-form-modal/archive/master.zip)
 
 This Elements modal demo uses one CSS and one JS file (feel free to customize them to your needs.) Include them in the `<head>` of your page source:
 
