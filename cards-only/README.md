@@ -37,9 +37,9 @@ npm install
 npm start
 ```
 
-Go to [http://localhost:5000](http://localhost:5000) to see the payment page and create a test charge.
+Go to [http://localhost:4242](http://localhost:4242) to see the payment page and create a test charge.
 
-### 1. Download the project [ZIP file](https://git.corp.stripe.com/ctrudeau/elements-modal-demo/archive/master.zip)
+### 1. Download the project [ZIP file](https://github.com/stripe-samples/payment-form-modal/archive/master.zip)
 
 This Elements modal demo uses one CSS and one JS file (feel free to customize them to your needs.) Include them in the `<head>` of your page source:
 
