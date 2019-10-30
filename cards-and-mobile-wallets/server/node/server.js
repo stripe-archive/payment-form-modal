@@ -2,9 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const { resolve } = require("path");
-
-
-
 const env = require("dotenv").config({ path: "./.env" });
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const port = process.env.PORT || 4242;
