@@ -55,7 +55,7 @@ public class Server {
         get("/public-key", (request, response) -> {
             response.type("application/json");
             JsonObject publicKey = new JsonObject();
-            publicKey.addProperty("publicKey", System.getenv("STRIPE_PUBLIC_KEY"));
+            publicKey.addProperty("publicKey", System.getenv("STRIPE_PUBLISHABLE_KEY"));
             return publicKey.toString();
         });
 

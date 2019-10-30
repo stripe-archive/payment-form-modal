@@ -15,7 +15,7 @@ mvn package
    (the Java sample pulls environment variables from your system)
 
 ```
-export STRIPE_PUBLIC_KEY=pk_replace_with_your_key
+export STRIPE_PUBLISHABLE_KEY=pk_replace_with_your_key
 export STRIPE_SECRET_KEY=sk_replace_with_your_key
 export STRIPE_WEBHOOK_SECRET=whsec_1234
 ```

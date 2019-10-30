@@ -1,7 +1,7 @@
 // Create a Stripe client.
 // add your PK_test key here
 // https://stripe.com/docs/keys
-var STRIPE_PUBLIC_KEY = "pk_test_12345";
+var STRIPE_PUBLISHABLE_KEY = "pk_test_12345";
 
 // Change the host url to match where you host the server
 var HOST_URL = "";

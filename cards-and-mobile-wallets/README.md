@@ -24,9 +24,13 @@ the iframe must have the allowpaymentrequest attribute set.
 
 ### Copy the env file, install the dependencies, and start the server:
 
+Copy the .env.example file into a file named .env in the folder of the server you want to use. For example:
+
+You will need a Stripe account in order to run the demo. Once you set up your account, go to the Stripe [developer dashboard](https://stripe.com/docs/development#api-keys) to find your API keys and update your .env file with the keys.
+
 ```
 # Add your Stripe API keys to your .env
-cp .env.example .env
+cp .env.example server/node/.env
 npm install
 npm start
 ```
