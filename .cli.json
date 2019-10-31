@@ -1,0 +1,17 @@
+{
+    "name": "payment-form-modal",
+    "configureDotEnv": true,
+    "integrations": [
+      {
+        "name": "cards-and-mobile-wallets",
+        "clients": ["web"],
+        "servers": ["java", "node", "php", "python", "ruby"]
+      },
+      {
+        "name": "cards-only",
+        "clients": ["web"],
+        "servers": ["java", "node", "php", "python", "ruby"]
+      }
+    ]
+  }
+  
