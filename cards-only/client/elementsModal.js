@@ -546,8 +546,9 @@ function createElements(content, paymentIntent, publicKey) {
     event.preventDefault();
 
     stripe
-      .handleCardPayment(paymentIntent.client_secret, card, {
-        payment_method_data: {
+      .confirmCardPayment(paymentIntent.client_secret, {
+        payment_method: {
+          card: card,
           billing_details: { name: content.customerName }
         }
       })

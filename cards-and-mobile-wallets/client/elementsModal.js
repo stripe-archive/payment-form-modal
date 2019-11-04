@@ -471,10 +471,11 @@
 
     paymentRequest.on("paymentmethod", function(ev) {
       _elementsModal_stripe
-        .confirmPaymentIntent(paymentIntent.client_secret, {
-          payment_method: ev.paymentMethod.id,
-          use_stripe_sdk: true
-        })
+        .confirmCardPayment(
+          paymentIntent.client_secret,
+          { payment_method: ev.paymentMethod.id },
+          { handleActions: false }
+        )
         .then(function(confirmResult) {
           if (confirmResult.error) {
             // Report to the browser that the payment failed, prompting it to
@@ -487,7 +488,7 @@
             ev.complete("success");
             // Let Stripe.js handle the rest of the payment flow.
             _elementsModal_stripe
-              .handleCardPayment(paymentIntent.client_secret)
+              .confirmCardPayment(paymentIntent.client_secret)
               .then(function(result) {
                 if (result.error) {
                   // The payment failed -- ask your customer for a new payment method.
@@ -546,8 +547,9 @@
       event.preventDefault();
 
       _elementsModal_stripe
-        .handleCardPayment(paymentIntent.client_secret, card, {
-          payment_method_data: {
+        .confirmCardPayment(paymentIntent.client_secret, {
+          payment_method: {
+            card: card,
             billing_details: { name: content.customerName }
           }
         })
