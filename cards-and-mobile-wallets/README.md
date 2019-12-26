@@ -43,8 +43,6 @@ Go to your [Ngrok](https://stripe.com/docs/stripe-js/elements/payment-request-bu
 
 This demo shows how to implement [Stripe Elements](https://stripe.com/payments/elements) within a modal dialog showing the payment request button. To get started:
 
-- Edit the `client/elementsModal.js` and add your public Stripe key on
-  [line 4](client/elementsModal.js#L4).
 - Edit the `HOST_URL` to be your [Ngrok](https://stripe.com/docs/stripe-js/elements/payment-request-button#prerequisites) URL on [line 7](client/elementsModal.js#L7).
 - Edit the endpoint for `/payment_intents`, defined on [line 447
   ](client/elementsModal.js#L447) for the modal dialog.
