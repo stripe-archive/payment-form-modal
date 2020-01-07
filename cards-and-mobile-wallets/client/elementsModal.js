@@ -486,7 +486,9 @@
             // Report to the browser that the confirmation was successful, prompting
             // it to close the browser payment method collection interface.
             ev.complete("success");
-            // Let Stripe.js handle the rest of the payment flow.
+            // Check if payment has fully succeeded and no futher action is needed
+            if (confirmResult.paymentIntent.status === "succeeded") return stripePaymentHandler();
+            // Otherwise, let Stripe.js handle the rest of the payment flow (eg. 3DS authentication is required).
             _elementsModal_stripe
               .confirmCardPayment(paymentIntent.client_secret)
               .then(function(result) {
