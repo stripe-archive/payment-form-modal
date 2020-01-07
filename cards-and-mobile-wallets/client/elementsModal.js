@@ -473,8 +473,7 @@
       _elementsModal_stripe
         .confirmCardPayment(
           paymentIntent.client_secret,
-          { payment_method: ev.paymentMethod.id },
-          { handleActions: false }
+          { payment_method: ev.paymentMethod.id }
         )
         .then(function(confirmResult) {
           if (confirmResult.error) {
@@ -482,25 +481,15 @@
             // re-show the payment interface, or show an error message and close
             // the payment interface.
             ev.complete("fail");
+            var displayError = document.getElementById(
+              "paymentRequest-errors"
+            );
+            displayError.textContent = confirmResult.error.message;
           } else {
             // Report to the browser that the confirmation was successful, prompting
             // it to close the browser payment method collection interface.
             ev.complete("success");
-            // Let Stripe.js handle the rest of the payment flow.
-            _elementsModal_stripe
-              .confirmCardPayment(paymentIntent.client_secret)
-              .then(function(result) {
-                if (result.error) {
-                  // The payment failed -- ask your customer for a new payment method.
-                  var displayError = document.getElementById(
-                    "paymentRequest-errors"
-                  );
-                  displayError.textContent = result.error.message;
-                } else {
-                  // The payment has succeeded.
-                  stripePaymentHandler();
-                }
-              });
+            stripePaymentHandler();
           }
         });
     });
