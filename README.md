@@ -1,4 +1,6 @@
->  This project is deprecated and is no longer being actively maintained.
+> <img src="https://stripe.dev/images/badges/archived.png" width="250">
+>
+> This project is deprecated and is no longer being actively maintained.
 
 # Stripe Elements modal demo
 
